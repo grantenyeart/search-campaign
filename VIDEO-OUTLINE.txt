@@ -1,0 +1,225 @@
+================================================================
+SEARCH CAMPAIGNS: THE PRODUCT TRAINING
+Video outline and what to say
+Target length 12 to 15 minutes
+================================================================
+
+WHO THIS IS FOR
+Your closers and setters. Not clients. They need two things out
+of this video: how the product actually works, and the words to
+explain it on a call without sounding like they memorised a page.
+
+THE ONE THING THIS VIDEO HAS TO DO
+Answer "why would I have you run it instead of running it myself"
+so completely that it stops being an objection. Everything else
+is supporting material.
+
+The answer is the auction. A business owner assumes Google is an
+auction where the biggest wallet wins, so paying you looks like
+paying a middleman. Once they understand the highest bid does not
+win, the whole conversation changes. Lead with that.
+
+LANGUAGE RULES, SAY THEM ON CAMERA
+  Internally: PPC is fine.
+  To a client: "Google Search Campaign." Never "PPC."
+  Never say "LSA." Say "your Google pay per lead ads."
+  Never say "that has quite literally never happened." It has.
+  The guarantee is spoken only. Never a slide, never in the pitch.
+
+
+----------------------------------------------------------------
+1  COLD OPEN                                        about 45 sec
+----------------------------------------------------------------
+Do not start with a definition. Start with the objection.
+
+SAY SOMETHING LIKE:
+  "Every owner you pitch this to is going to think the same
+   thing. Google Ads is just an auction. Whoever pays the most
+   shows up first. So why would I pay you on top of paying
+   Google?
+
+   By the end of this you are going to be able to take that
+   apart in about ninety seconds, because the premise is wrong.
+   The highest bid does not win. It has never been how it works."
+
+Then tell them what the video covers in one breath.
+
+
+----------------------------------------------------------------
+2  WHAT A SEARCH CAMPAIGN IS                          1 to 2 min
+----------------------------------------------------------------
+Keep it short. They have the deck for detail.
+
+Cover:
+  - Somebody types a buying search. "Mobile detailing near me."
+  - Our ad is the text ad right under the pay per lead ads.
+  - They click, they land on a page we built for that search,
+    not a homepage.
+  - They book, call or fill the form. That is a conversion.
+  - Client pays Google per click, directly, on their own card.
+
+SAY:
+  "Pay per lead ads get them on the map. The Search Campaign
+   gets them past the cap. They stack, they do not compete."
+
+Do not go deeper here. The next section is the video.
+
+
+----------------------------------------------------------------
+3  THE AUCTION. THE CENTREPIECE                       4 to 5 min
+----------------------------------------------------------------
+Slow down. This is the part they will actually use on calls.
+
+3a  The formula
+    Ad Rank = your bid  x  your Quality Score  +  your ad extras
+
+    Say it plainly: there are three levers and money is only one
+    of them.
+
+3b  Quality Score, 1 to 10, on every keyword
+    Google scores every single keyword out of ten, live, every
+    time somebody searches. Three things go into it:
+
+      1. Expected click rate. Do people actually click this ad.
+      2. Ad relevance. Does the ad answer what they typed.
+      3. Landing page experience. What the page does once they
+         arrive. Speed, mobile, does it match the promise.
+
+    SAY:
+      "Every keyword in the account gets a report card. Out of
+       ten. Updated every time somebody searches. And two of
+       those three grades have nothing to do with money."
+
+3c  THE WORKED EXAMPLE. Put this on screen.
+    Two detailers, same town, same search.
+
+      Guy running it himself       We run it
+      bids $8                      bids $5
+      Quality Score 4              Quality Score 9
+      8 x 4 = Ad Rank 32           5 x 9 = Ad Rank 45
+
+    Our client wins the higher spot while bidding three dollars
+    less per click.
+
+    SAY:
+      "He is paying more and losing. Not because we outspent
+       him. Because we out built him."
+
+3d  It gets better, because the score also sets the price
+    What you actually pay per click is based on the competitor
+    below you divided by your own Quality Score. Your score is
+    the denominator. Higher score, lower price.
+
+    Score 6 to 10, Google discounts your clicks.
+    Score 4 or under, you pay a premium for the same position.
+
+    SAY:
+      "So the score does two jobs. It decides where you show up,
+       and it decides what you pay to be there. A bad score
+       means you pay more for a worse spot. That is the trap
+       every owner running it themselves falls into."
+
+3e  The line to close the section
+    "You cannot buy your way to the top of Google. You can only
+     earn your way there. Earning it is the part we do."
+
+ONE HONESTY NOTE, SAY IT ON CAMERA
+    Bid times Quality Score is the simplified version. The real
+    auction also factors device, location, time of day and the
+    ad assets. Tell your reps that, so if a sharp prospect
+    pushes, they say "that is the simple version, there are a
+    few more inputs" instead of getting caught out.
+
+
+----------------------------------------------------------------
+4  WHY THEY CANNOT DO THIS ALONE                      2 to 3 min
+----------------------------------------------------------------
+Now the six ways they burn money land differently, because every
+one of them is a Quality Score problem.
+
+  1. No negative keywords. They pay for "how to detail a car
+     yourself" all day. Kills click rate, kills the score.
+  2. They send clicks to the homepage. Kills landing page
+     experience, which is a third of the grade.
+  3. They bid on everything at once. Budget spread thin, no
+     keyword ever gets enough data to score well.
+  4. No tracking. They cannot tell which half worked.
+  5. Set it and forget it. Google keeps spending either way.
+  6. They quit at week three, right when it stops learning and
+     starts producing.
+
+SAY:
+  "Notice what three of those six are. They are not budget
+   problems. They are build problems. He could double his
+   budget tomorrow and every one of those is still true."
+
+
+----------------------------------------------------------------
+5  WHAT WE ACTUALLY BUILD                             1 to 2 min
+----------------------------------------------------------------
+Tie each piece to the grade it moves. That is what makes this
+sound like a service instead of a fee.
+
+  Keyword research and negatives     -> click rate
+  Ad copy written per ad group       -> ad relevance
+  Landing page built for the search  -> landing page experience
+  Conversion tracking                -> proves it worked
+  Ongoing management                 -> the score is live, so
+                                        the work has to be too
+
+SAY:
+  "Every single thing we do maps to one of the three grades.
+   That is the whole service. We are not managing a budget. We
+   are raising a score."
+
+
+----------------------------------------------------------------
+6  THE MONEY                                          1 to 2 min
+----------------------------------------------------------------
+Use the deck for the ladder. On camera just cover:
+  - $50 a day is the number that works, and what that produced.
+  - It is their card and their Google account. We never mark up
+    the ad spend.
+  - Month to month.
+
+Point them at the deck for the price ladder rather than reading
+numbers out, so the video does not go stale when pricing moves.
+
+
+----------------------------------------------------------------
+7  PUTTING IT ON A CALL                               1 to 2 min
+----------------------------------------------------------------
+Give them the ninety second version to actually say out loud.
+
+  "Most people think Google is just an auction, highest bidder
+   wins. It is not. Google scores every keyword out of ten on
+   three things: whether people click your ad, whether the ad
+   matches the search, and what your page does when they land.
+   Your position is your bid times that score. So somebody with
+   a great score and a smaller bid beats somebody with a big
+   bid and a bad one, and pays less per click doing it. Running
+   it yourself, you are almost always the second guy. We do the
+   work that moves the score."
+
+Then shut up and let them respond.
+
+CLOSE THE VIDEO ON:
+  "You are not selling ad management. You are selling the three
+   grades. Anybody can place a bid. Almost nobody can move the
+   score."
+
+
+----------------------------------------------------------------
+BEFORE YOU HIT RECORD
+----------------------------------------------------------------
+  Have the worked example on screen. It is the one thing people
+  will screenshot and remember.
+
+  Keep the pricing thin. Point at the deck instead, so you do
+  not have to re-record when the ladder changes.
+
+  Say the language rules out loud, early. Search Campaign, not
+  PPC. Pay per lead ads, not LSA. Reps repeat what they hear.
+
+  Do not mention the guarantee. Not once. It has its own slide
+  in the module and it is spoken only.
