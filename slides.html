@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Google Search Campaign &middot; Rapid Reach Closer Training</title>
+<meta name="theme-color" content="#020817" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#020817; --bg2:#01030a; --card:#0b1322; --card2:#101c33;
+    --border:#1e293b; --border2:#27364b; --text:#f8fafc; --muted:#94a3b8; --muted2:#64748b;
+    --gold:#f59e0b; --gold2:#eab308; --green:#34d399; --red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.5;overflow:hidden;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(1000px 600px at 85% -10%,rgba(245,158,11,.11),transparent 60%),
+               radial-gradient(800px 600px at 0% 110%,rgba(234,179,8,.07),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+
+  .scroller{position:relative;z-index:1;height:100%;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth;}
+  .slide{min-height:100%;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;
+    max-width:1000px;margin:0 auto;padding:68px 30px 92px;}
+
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:13px;}
+  h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(38px,7.5vw,82px);font-weight:900;letter-spacing:-.02em;line-height:1;}
+  h2{font-size:clamp(26px,4.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.08;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:clamp(15px,2.1vw,19px);margin-top:16px;max-width:780px;}
+  p{color:#cbd5e1;font-size:16px;}
+  .note{color:var(--muted2);font-size:13.5px;margin-top:16px;}
+
+  .rows{display:flex;flex-direction:column;gap:11px;margin-top:26px;}
+  .row{display:flex;gap:15px;align-items:flex-start;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:13px;padding:16px 19px;}
+  .num{flex:0 0 auto;width:29px;height:29px;border-radius:9px;background:var(--grad);color:#0f172a;
+    font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .qt{font-size:17px;font-weight:800;color:#fff;line-height:1.35;}
+  .qs{color:var(--muted);font-size:14.5px;margin-top:5px;}
+
+  .say{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.26);border-radius:13px;padding:18px 21px;margin-top:22px;}
+  .say .lbl{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .say q{display:block;color:#fff;font-size:clamp(17px,2.5vw,23px);font-style:italic;font-weight:600;line-height:1.45;}
+  .say q:before,.say q:after{content:'"';}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-top:24px;}
+  .stat{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:13px;padding:18px 19px;}
+  .stat b{display:block;font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,44px);font-weight:900;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat span{display:block;color:var(--muted);font-size:13.5px;margin-top:8px;}
+  .stat.bad b{background:linear-gradient(135deg,#f87171,#ef4444);-webkit-background-clip:text;background-clip:text;}
+  .stat.good b{background:linear-gradient(135deg,#34d399,#10b981);-webkit-background-clip:text;background-clip:text;}
+
+  table{width:100%;border-collapse:collapse;margin-top:24px;font-size:16px;}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);}
+  th{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:800;}
+  .dn{color:var(--red);} .up{color:var(--green);}
+
+  .why{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:13px;padding:17px 20px;margin-top:22px;}
+  .why .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+  .why p{color:#e2e8f0;font-size:15.5px;}
+
+  .seq{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
+  .step{display:flex;gap:14px;align-items:center;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-radius:12px;padding:14px 18px;}
+  .when{flex:0 0 auto;min-width:118px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+  .what{font-size:15.5px;color:#e2e8f0;}
+  .what b{color:#fff;}
+
+  .check{list-style:none;margin-top:22px;}
+  .check li{font-size:16px;color:#e2e8f0;padding:9px 0 9px 32px;position:relative;border-bottom:1px solid var(--border);}
+  .check li:before{content:"\2713";position:absolute;left:4px;top:9px;color:var(--gold);font-weight:900;}
+  .check li b{color:#fff;}
+
+  .big{font-family:'Playfair Display',serif;font-size:clamp(28px,5.2vw,56px);font-weight:900;line-height:1.08;margin-top:8px;}
+
+  .warn{background:rgba(248,113,113,.09);border:1px solid rgba(248,113,113,.38);border-radius:13px;padding:17px 20px;margin-top:20px;}
+  .warn .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:7px;}
+  .warn p{color:#fecaca;font-size:15.5px;} .warn b{color:#fff;}
+  table{width:100%;border-collapse:collapse;margin-top:20px;font-size:15.5px;}
+  th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--border);}
+  th{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:800;}
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;backdrop-filter:blur(14px);
+    background:rgba(2,8,23,.9);border-top:1px solid var(--border);}
+  .bar-in{max-width:1000px;margin:0 auto;padding:11px 30px;display:flex;align-items:center;gap:10px;}
+  .nb{background:transparent;border:1px solid var(--border2);color:var(--muted);border-radius:10px;width:38px;height:36px;font-size:15px;cursor:pointer;}
+  .nb:hover{border-color:var(--gold);color:var(--gold);}
+  .count{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--muted2);font-variant-numeric:tabular-nums;}
+  .prog{position:fixed;top:0;left:0;height:3px;background:var(--grad);z-index:40;width:0;transition:width .25s ease;}
+  .brand{position:fixed;top:19px;left:30px;z-index:30;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);}
+  @media(max-width:620px){ .slide{padding:62px 18px 92px;} .bar-in{padding:10px 18px;} .brand{left:18px;} .when{min-width:92px;font-size:11px;} }
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+<a class="brand" href="./" style="text-decoration:none;">&larr; Back to the training</a>
+
+<div class="scroller" id="scroller">
+
+  <section class="slide">
+    <div class="kicker">Rapid Reach &middot; Closer Training</div>
+    <h1>Google<br><span class="gold">Search Campaign</span></h1>
+    <p class="lead">What it is, how it is different from the ads they already run, what it costs, what it produces, and how to sell it without promising anything we cannot back.</p>
+    <p class="note">We call it a Google Search Campaign. Never PPC, never pay per click, not to a client and not on a call.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The module</div>
+    <h2>What is in here</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qt">The basics</div><div class="qs">What a Search Campaign actually is, in words a client uses.</div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qt">Search Campaign against pay per lead</div><div class="qs">The question every single owner asks you.</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qt">Why they cannot do it alone</div><div class="qs">Six ways local businesses burn money running it themselves.</div></div></div>
+      <div class="row"><div class="num">4</div><div><div class="qt">What we actually build and track</div><div class="qs">What is included, and what counts as a conversion.</div></div></div>
+      <div class="row"><div class="num">5</div><div><div class="qt">The offer and the math</div><div class="qs">The price ladder, the terms, and real launch numbers.</div></div></div>
+      <div class="row"><div class="num">6</div><div><div class="qt">Launch, their job, objections</div><div class="qs">What happens after they sign and what they owe us.</div></div></div>
+      <div class="row"><div class="num">7</div><div><div class="qt">The guarantee</div><div class="qs">Spoken only. Never on a slide, never in the pitch.</div></div></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">01 &middot; The basics</div>
+    <h2>What a Search Campaign is</h2>
+    <p class="lead">Somebody types what they need into Google. We put the business in front of them, and the click lands on a page built to do one thing: book the job.</p>
+    <div class="rows">
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">We build the landing page</div><div class="qs">Their pricing, their work, and a booking path. Not their homepage.</div></div></div>
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">We pick the services, the keywords and the towns</div><div class="qs">And we police the junk searches daily so they stop paying for clicks that were never going to book.</div></div></div>
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">They pay Google directly for the clicks</div><div class="qs">Their card, their account. We charge a flat management fee on top.</div></div></div>
+    </div>
+    <div class="why"><div class="lbl">Say it this simply</div><p>"We put you in front of people already typing what you do into Google, and we send them to a page built to book you."</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">02 &middot; The question every owner asks</div>
+    <h2>Search Campaign against<br>the ads they <span class="gold">already have</span></h2>
+    <table>
+      <tr><th>&nbsp;</th><th>Pay per lead ads</th><th>Search Campaign</th></tr>
+      <tr><td>Where it sits</td><td>Very top, with the Google badge</td><td>The ads right underneath those</td></tr>
+      <tr><td>What they pay for</td><td>Per lead</td><td>Per click</td></tr>
+      <tr><td>Where it lands</td><td>Nowhere, they call or message straight from Google</td><td>A landing page we build and manage</td></tr>
+      <tr><td>Who picks the targeting</td><td>Google</td><td>We do. Services, keywords, towns.</td></tr>
+      <tr><td>Can they buy more</td><td>No. Google decides how many exist in their area.</td><td>Yes. It grows with the budget.</td></tr>
+    </table>
+    <div class="say"><div class="lbl">Talk track</div><q>Your pay per lead ads get you on the map. The Search Campaign gets you past the cap.</q></div>
+    <div class="why"><div class="lbl">They stack, they do not compete</div><p>Kansas City, September: <b>82 pay per lead leads, which was the ceiling</b>, and <b>264 Book Now clicks, calls and bookings</b> off Search in the same month. Salt Lake went from <b>48 leads a month to 98</b> by adding Search on top.<br><br>Say "your Google pay per lead ads." <b>Never say LSA to a client.</b></p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">03 &middot; Why they need us</div>
+    <h2>Six ways local businesses<br>burn money <span class="gold">alone</span></h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qt">They pay for searches that were never going to book</div><div class="qs">No negative keywords, so they buy "how to detail a car yourself" all day.</div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qt">They send the click to their homepage</div><div class="qs">Which asks the visitor to go find what they came for.</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qt">They bid on everything at once</div><div class="qs">Budget spread thin across services they do not even want.</div></div></div>
+      <div class="row"><div class="num">4</div><div><div class="qt">They have no tracking</div><div class="qs">So they cannot tell you which half of it worked.</div></div></div>
+      <div class="row"><div class="num">5</div><div><div class="qt">They set it and leave it</div><div class="qs">Google happily keeps spending either way.</div></div></div>
+      <div class="row"><div class="num">6</div><div><div class="qt">They quit at week three</div><div class="qs">Right at the point the campaign stops learning and starts producing.</div></div></div>
+    </div>
+    <p class="note">We run Search Campaigns for detailing, window cleaning, commercial cleaning, spray foam and epoxy. The examples in here are detailing because that is most of the book, but it works for any local service.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">04 &middot; How Google decides</div>
+    <h2>Google grades three things</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qt">How often people click the ad</div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qt">How well the ad matches what they searched</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qt">What the page does once they land on it</div></div></div>
+    </div>
+    <div class="why"><div class="lbl">The line</div><p><b>We work all three. Google grades each one against the competition.</b><br><br>That is why two businesses can spend the same money and get completely different results. Score well on all three and Google charges you less for the same position.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">05 &middot; What the searcher sees</div>
+    <h2>The ad itself</h2>
+    <div class="say"><div class="lbl">What lands on their screen</div><q>Mobile Detailing Des Moines | Book Online in 60 Seconds. We come to you. 5-star rated with 300+ reviews.</q></div>
+    <div class="rows">
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">Up to 15 headlines and 4 descriptions</div><div class="qs">Google tests the combinations and keeps the winners.</div></div></div>
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">Assets add a call button, service links, reviews and location</div></div></div>
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">A more useful ad earns more clicks</div><div class="qs">Which lifts the grade, which makes every click cheaper.</div></div></div>
+    </div>
+    <p class="note">Every line of it is written and tested by us. They never touch it.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">06 &middot; What is included</div>
+    <h2>What comes with every Search Campaign</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qt">The landing page</div><div class="qs">Built and managed for them, carrying their pricing and their work.</div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qt">Their own CRM sub-account</div><div class="qs">Every lead lands somewhere they can actually see it.</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qt">A business tracking number</div><div class="qs">So every call and every text off the campaign is recorded.</div></div></div>
+    </div>
+    <div class="warn"><div class="lbl">Do not say these</div><p><b>No AI chat widget.</b> We do not put them on Search landing pages. It covered the call buttons on phones and we just pulled it off True Clean.<br><br><b>Do not call it the Detailer Growth System here.</b> This is not a detailer-only product.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">06b &middot; What counts</div>
+    <h2>What a <span class="gold">conversion</span> is</h2>
+    <p class="lead">Define it once, out loud, the first time you say the word. If you do not, they hear a number and expect that many jobs.</p>
+    <div class="rows">
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">A call</div></div></div>
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">A text</div></div></div>
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">A quote request</div></div></div>
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">A Book Now click</div></div></div>
+    </div>
+    <div class="why"><div class="lbl">Booked jobs are separate</div><p>Those get tracked in their CRM, not in Google. <b>A conversion is somebody reaching out. It is not a job on the calendar</b>, and an owner who confuses the two will be disappointed on the first monthly report no matter how well the campaign ran.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">07 &middot; The offer</div>
+    <h2>The price ladder</h2>
+    <p class="lead">Lead with $1,000. The rest are real and they are in our agreements, so know them, but do not open with them.</p>
+    <table>
+      <tr><th>Plan</th><th style="text-align:right;">Per month</th><th>When</th></tr>
+      <tr><td>Standard</td><td class="n">$1,000</td><td>Lead here on every new deal</td></tr>
+      <tr><td>Reduced</td><td class="n">$750</td><td>Real. We just quoted Apex at this.</td></tr>
+      <tr><td>Floor</td><td class="n">$500</td><td>The bottom. Do not go looking for it.</td></tr>
+      <tr><td>Revenue share</td><td class="n">15%</td><td>When they will not pay a flat fee at all</td></tr>
+    </table>
+    <div class="why"><div class="lbl">The terms</div><p>Billed at signing. Month to month. Live 7 to 14 days after they fill out the onboarding form. <b>No exclusivity.</b><br><br>Ad spend is separate and always theirs, paid to Google on their own card.</p></div>
+    <div class="warn"><div class="lbl">Not on offer</div><p>There is <b>no annual plan</b> and no "$8,000 for the year." It is not in any agreement we have. If we want one, it goes in the agreement first.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">08 &middot; The math</div>
+    <h2>What <span class="gold">$50 a day</span> actually did</h2>
+    <p class="lead">Our Kansas City client's first 17 days, 6/26 to 7/12. Real numbers off the account, not an estimate.</p>
+    <div class="stats">
+      <div class="stat"><b>700</b><span>Clicks a month</span></div>
+      <div class="stat"><b>$2.18</b><span>Per click</span></div>
+      <div class="stat"><b>7.1%</b><span>Click through rate</span></div>
+      <div class="stat"><b>180</b><span>Conversions a month</span></div>
+      <div class="stat"><b>$8.36</b><span>Per conversion</span></div>
+    </div>
+    <div class="warn"><div class="lbl">Say this before you say the number</div><p>A conversion is someone who <b>called, texted, requested a quote or hit Book Now.</b> Never turn it into a jobs promise. Do not say "and if half of them book."</p></div>
+    <div class="why"><div class="lbl">Clicks depend on the market</div><p>Kansas City detailing runs about <b>$2 a click</b>. Most detailing markets are <b>$3 to $5</b>. Window cleaning is nearer <b>$10</b>. Same $50 a day buys a very different number of clicks, so say <b>"in a market like Kansas City"</b> when you use these.<br><br>And <b>$50 a day is a cap, not a bill.</b> In a small market they will not spend all of it, because there are not enough searches.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">08b &middot; Booked jobs</div>
+    <h2>When they ask about actual jobs</h2>
+    <p class="lead">Do not do arithmetic on conversions. Use the two accounts where we have the real booked numbers.</p>
+    <div class="two" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:22px;">
+      <div class="stat" style="text-align:left;"><b>15</b><span>Jobs booked online in September, plus 11 quote requests. Kansas City, at about $95 a day.</span></div>
+      <div class="stat" style="text-align:left;"><b>13</b><span>Jobs booked in 23 days. Armenta's, at $80 a day.</span></div>
+    </div>
+    <div class="why"><div class="lbl">About "10 to 20 a week"</div><p>That is where we <b>scale to</b>, with more budget, once the cost per job holds. It is not what $50 a day does in month one.<br><br>Frame it as a build up: start at $50, prove the cost per job, then raise the budget. <b>Promise month one and you will be having a very different conversation on the first report.</b></p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">09 &middot; After they sign</div>
+    <h2>How it launches</h2>
+    <div class="seq">
+      <div class="step"><div class="when">Day one</div><div class="what">They sign and fill out the onboarding form. We build a <b>new Google Ads account in their name with their card on it</b>, separate from any pay per lead account.</div></div>
+      <div class="step"><div class="when">The build</div><div class="what">We build the landing page and <b>test every call, text and form before a dollar is spent.</b></div></div>
+      <div class="step"><div class="when">7 to 14 days</div><div class="what">Live. The first two weeks are learning, so <b>we do not judge week one.</b></div></div>
+      <div class="step"><div class="when">Ongoing</div><div class="what">A quick weekly update, a monthly report, and we review where their leads come from at <b>30, 60 and 90 days.</b></div></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">10 &middot; Their side</div>
+    <h2>What the client has to do</h2>
+    <p class="lead">Set this on the call. It is where most of our accounts break, and every one of these is theirs, not ours.</p>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qt">Answer the phone</div><div class="qs">Missed calls are the number one way these fail.</div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qt">Respond to quote requests within minutes</div><div class="qs">Leads go cold fast.</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qt">Tell us which leads booked</div><div class="qs">We cannot optimise toward jobs we cannot see.</div></div></div>
+      <div class="row"><div class="num">4</div><div><div class="qt">Keep the card current and finish Google's advertiser verification</div><div class="qs">Only they can do it, and Google pauses the ads if they do not.</div></div></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">11 &middot; Objections</div>
+    <h2>The two you will hear most</h2>
+    <div class="say"><div class="lbl">"I don't want to hand over my ad budget"</div><q>It's your card and your Google account. You pay Google directly and we never mark it up. We manage the campaign, you own it.</q></div>
+    <div class="say"><div class="lbl">"What if it doesn't work?"</div><q>You're month to month. We track every call and every lead, we review the numbers at 30, 60 and 90 days, and if it isn't working we change the plan or tell you straight.</q></div>
+    <div class="warn"><div class="lbl">Never say this</div><p><b>Do not say "that has quite literally never happened."</b> It has happened. A client who was told that and then has a slow month will hold it against us for the rest of the relationship.<br><br>If they are still stuck after the month to month answer, that is the only point the guarantee comes out, and it is spoken. See the last slide.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">12 &middot; The upsell</div>
+    <h2>Selling it to a client we already have</h2>
+    <p class="lead">They are already on pay per lead. They are capped and they do not know it. That is the whole conversation.</p>
+    <div class="stats">
+      <div class="stat"><b>82</b><span>Pay per lead leads in September. His ceiling.</span></div>
+      <div class="stat"><b>264</b><span>Book Now clicks, calls and bookings off Search, same month</span></div>
+      <div class="stat"><b>48 &rarr; 98</b><span>Salt Lake, leads a month, after adding Search</span></div>
+    </div>
+    <div class="why"><div class="lbl">Use a month, not a day</div><p>Never pitch this on one good day. <b>A sharp owner will spot it instantly</b> and you will spend the rest of the call defending the number instead of selling. And do not say "imagine four times that return." We cannot back it.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">13 &middot; The guarantee</div>
+    <h2>Spoken only. <span class="gold">Never shown.</span></h2>
+    <div class="warn"><div class="lbl">Read this before anything else</div><p>This <b>never goes on a slide and never goes in the pitch.</b> It is not a feature. It is what you reach for when a prospect has said the risk out loud and nothing else has moved them.<br><br><b>Someone who is ready to sign does not get it.</b></p></div>
+    <div class="say"><div class="lbl">Word for word</div><q>Your campaign books back what you spend with us, ads plus our fee, within your first 60 days live. If it doesn't, you don't pay our fee again until it does.</q></div>
+    <div class="why"><div class="lbl">When</div><p>Only after they name the risk themselves: "what if it doesn't work", "I got burned before", "I can't afford to lose this."<br><br><b>Answer with month to month first.</b> Only if they are still stuck does this come out. If they will not pay a flat fee at all, that is the 15% revenue share, and <b>the guarantee never goes with revenue share.</b></p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">13b &middot; Their number</div>
+    <h2>Work out the number before you offer it</h2>
+    <p class="lead">Two months of our fee, plus 60 days of ad spend, divided by their average job price, rounded up.</p>
+    <table>
+      <tr><th>Plan</th><th style="text-align:right;">Fee x 2</th><th style="text-align:right;">60 days ads</th><th style="text-align:right;">Their number</th></tr>
+      <tr><td>$1,000</td><td class="n">$2,000</td><td class="n">$3,000</td><td class="n">20 jobs</td></tr>
+      <tr><td>$750</td><td class="n">$1,500</td><td class="n">$3,000</td><td class="n">18 jobs</td></tr>
+      <tr><td>$500</td><td class="n">$1,000</td><td class="n">$3,000</td><td class="n">16 jobs</td></tr>
+    </table>
+    <p class="note">At $50 a day and a $250 average job. For commercial work, a signed contract counts as a job.</p>
+    <div class="warn"><div class="lbl">Where this goes wrong</div><p>Take the average job price from <b>their price list or their booking page, not their guess.</b> Owners round up when they are talking about themselves.<br><br><b>Only offer it when their market can clearly hit the number.</b> Our projection has a low case. If the low case does not cover their number, there is no guarantee. That is how we avoid another True Clean.<br><br>If we have not run their market before the call, <b>do not promise it on the call.</b> Say you will check their market and confirm in writing today, then send Ryan their business, city, services, average job price and budget.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">13c &middot; Putting it in writing</div>
+    <h2>Right after the call, every time</h2>
+    <div class="seq">
+      <div class="step"><div class="when">First</div><div class="what">They sign the <b>normal agreement</b>.</div></div>
+      <div class="step"><div class="when">Then</div><div class="what">Send the guarantee form with their numbers already filled in. They sign it and get a signed copy by email automatically.</div></div>
+    </div>
+    <div class="say"><div class="lbl">Copy this and change the name, business, email and numbers</div><q>tally.so/r/EkjoY4?name=First%20Last&business=Business%20Name&email=them@email.com&fee=1000&budget=50&ticket=250&jobs=20&rep=Grant</q></div>
+    <div class="why"><div class="lbl">What they are agreeing to</div><p>Keep the budget at their daily amount or higher. Answer every lead the same business day. Mark every lead booked or not booked in their CRM every week.<br><br><b>Ad spend is never refunded, and free management stops after 60 days.</b></p></div>
+    <div class="warn"><div class="lbl">Hard line</div><p>Do not promise anything outside this. <b>No money back, no other numbers.</b> If a deal needs something different, ask Ryan first.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Check yourself</div>
+    <h2>Before you run this call</h2>
+    <ul class="check">
+      <li>I call it a <b>Google Search Campaign</b>, never PPC, and never say LSA to a client</li>
+      <li>I can explain <b>pay per lead against Search</b> in plain words, and that they stack</li>
+      <li>I know what is included: <b>landing page, CRM sub-account, tracking number</b>. No chat widget.</li>
+      <li>I <b>define a conversion</b> out loud before I say any conversion number</li>
+      <li>I know <b>10 to 20 jobs a week is what we scale to</b> with more budget, not what $50 a day does in month one</li>
+      <li>I lead at <b>$1,000</b> and know $750, $500 and the 15% share are real</li>
+      <li>I set <b>their four jobs</b> on the call, starting with answering the phone</li>
+      <li>I answer "what if it doesn't work" with <b>month to month</b>, not with a guarantee</li>
+      <li>I only bring up the guarantee when <b>they name the risk and nothing else moved them</b></li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The one line</div>
+    <h1 style="font-size:clamp(28px,5.6vw,58px);">Sell what the account<br><span class="gold">actually does.</span></h1>
+    <p class="lead" style="margin-top:22px;">Every number in this module is off a real account and we can show it. That is the whole advantage. The moment you round one up to win a call, you have traded a client who stays for a client who leaves in month two.</p>
+    <div class="big gold" style="margin-top:28px;">Go sell it straight.</div>
+  </section>
+
+</div>
+
+<div class="bar"><div class="bar-in">
+  <button class="nb" onclick="go(idx-1)" title="Back">&uarr;</button>
+  <button class="nb" onclick="go(idx+1)" title="Next">&darr;</button>
+  <div class="count" id="count"></div>
+</div></div>
+
+<script>
+  const scroller=document.getElementById('scroller');
+  const slides=[...document.querySelectorAll('.slide')];
+  const tot=slides.length; let idx=0;
+  const count=document.getElementById('count'), prog=document.getElementById('prog');
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ idx=slides.indexOf(e.target);
+      count.textContent=String(idx+1).padStart(2,'0')+' / '+String(tot).padStart(2,'0');
+      prog.style.width=((idx+1)/tot*100)+'%'; }});
+  },{root:scroller,threshold:.55});
+  slides.forEach(s=>io.observe(s));
+  function go(n){ n=Math.max(0,Math.min(tot-1,n)); slides[n].scrollIntoView({behavior:'smooth'}); }
+  addEventListener('keydown',e=>{
+    if(['ArrowDown','PageDown',' ','ArrowRight'].includes(e.key)){e.preventDefault();go(idx+1);}
+    if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){e.preventDefault();go(idx-1);}
+    if(e.key==='Home')go(0); if(e.key==='End')go(tot-1);
+  });
+</script>
+</body>
+</html>

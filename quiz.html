@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Search Campaign Quiz &middot; Rapid Reach</title>
+<meta name="theme-color" content="#020817" />
+<meta name="description" content="Twenty questions. You need 16 to pass. Watch the training first." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Rapid Reach Sales Training" />
+<meta property="og:url" content="https://grantenyeart.github.io/search-campaign/quiz.html" />
+<meta property="og:title" content="Search Campaign Quiz" />
+<meta property="og:description" content="Twenty questions. You need 16 to pass. Watch the training first." />
+<meta property="og:image" content="https://grantenyeart.github.io/search-campaign/poster.jpg" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Search Campaign Quiz" />
+<meta name="twitter:description" content="Twenty questions. You need 16 to pass. Watch the training first." />
+<meta name="twitter:image" content="https://grantenyeart.github.io/search-campaign/poster.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#020817;--bg2:#01030a;--card:#0b1322;--card2:#101c33;--border:#1e293b;--border2:#27364b;
+    --text:#f8fafc;--muted:#94a3b8;--muted2:#64748b;--gold:#f59e0b;--green:#34d399;--red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.55;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 500px at 85% -10%,rgba(245,158,11,.10),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+  .wrap{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:44px 20px 120px;}
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  h1{font-size:clamp(30px,6vw,48px);font-weight:900;letter-spacing:-.02em;line-height:1.05;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:16px;margin-top:14px;}
+  .back{display:inline-block;margin-bottom:24px;font-size:13.5px;font-weight:700;color:var(--muted);
+    text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:7px 15px;}
+  .back:hover{color:var(--gold);border-color:var(--gold);}
+
+  .who{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border2);
+    border-radius:14px;padding:18px 20px;margin:26px 0 8px;}
+  .who label{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .who input{width:100%;background:#060d1c;border:1px solid var(--border2);color:var(--text);
+    border-radius:10px;padding:12px 14px;font:inherit;font-size:16px;}
+
+  .q{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);
+    border-left:3px solid var(--border2);border-radius:14px;padding:19px 21px;margin:14px 0;}
+  .q.right{border-left-color:var(--green);}
+  .q.wrong{border-left-color:var(--red);}
+  .qn{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);}
+  .qt{font-size:17px;font-weight:700;color:#fff;margin:7px 0 13px;line-height:1.4;}
+  .opt{display:flex;gap:11px;align-items:flex-start;padding:10px 12px;border:1px solid var(--border);
+    border-radius:10px;margin-bottom:8px;cursor:pointer;transition:border-color .12s ease,background .12s ease;}
+  .opt:hover{border-color:var(--border2);background:rgba(255,255,255,.02);}
+  .opt input{margin-top:4px;flex:0 0 auto;accent-color:#f59e0b;}
+  .opt span{font-size:15px;color:#cbd5e1;}
+  .opt.correct{border-color:rgba(52,211,153,.55);background:rgba(52,211,153,.08);}
+  .opt.correct span{color:#d1fae5;}
+  .opt.picked-wrong{border-color:rgba(248,113,113,.55);background:rgba(248,113,113,.08);}
+  .opt.picked-wrong span{color:#fecaca;}
+  .exp{margin-top:11px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.22);
+    border-radius:10px;padding:12px 14px;font-size:14.5px;color:#e2e8f0;display:none;}
+  .exp b{color:#fff;}
+  .q.graded .exp{display:block;}
+
+  .bar{height:5px;background:#0b1322;border-radius:999px;overflow:hidden;margin:22px 0 6px;}
+  .bar i{display:block;height:100%;width:0;background:var(--grad);transition:width .3s ease;}
+  .step{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);}
+  .stage{display:none;} .stage.on{display:block;}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--grad);color:#0f172a;
+    font-weight:800;font-size:16px;border:0;border-radius:999px;padding:15px 32px;cursor:pointer;font-family:inherit;}
+  .btn:hover{filter:brightness(1.08);}
+  .btn[disabled]{opacity:.45;cursor:not-allowed;filter:none;}
+  .btn.ghost{background:transparent;border:1px solid var(--border2);color:var(--muted);}
+  .actions{margin-top:28px;display:flex;gap:11px;flex-wrap:wrap;align-items:center;}
+  .note{color:var(--muted2);font-size:13.5px;}
+
+  .result{display:none;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border2);border-radius:16px;padding:26px;margin:26px 0;text-align:center;}
+  .result.on{display:block;}
+  .score{font-family:'Playfair Display',serif;font-size:clamp(46px,10vw,76px);font-weight:900;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .result.pass .score{background:linear-gradient(135deg,#34d399,#10b981);-webkit-background-clip:text;background-clip:text;}
+  .result.fail .score{background:linear-gradient(135deg,#f87171,#ef4444);-webkit-background-clip:text;background-clip:text;}
+  .verdict{font-size:19px;font-weight:800;margin-top:10px;}
+  .rsub{color:var(--muted);font-size:15px;margin-top:9px;}
+  .sent{margin-top:16px;font-size:14px;color:var(--green);display:none;}
+  .sent.on{display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">&larr; Back to the training</a>
+  <div class="kicker">Rapid Reach &middot; Sales Training</div>
+  <h1>Search Campaign <span class="gold">Quiz</span></h1>
+
+  <!-- START -->
+  <div class="stage on" id="st-start">
+    <p class="lead">Twenty questions, one at a time: the first eight come from the video, the rest from the slides. You need <b style="color:#fde68a">16 out of 20</b> to pass. Watch the video and go through the slides first. You get the answer and the reason after each one, so read them as you go.</p>
+    <div class="who">
+      <label>Your name</label>
+      <input type="text" id="name" placeholder="First and last name" autocomplete="name" />
+    </div>
+    <div class="actions"><button class="btn" id="begin">Start the quiz</button></div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="stage" id="st-quiz">
+    <div class="bar"><i id="barfill"></i></div>
+    <div class="step" id="step"></div>
+    <div id="holder"></div>
+    <div class="actions">
+      <button class="btn" id="check">Check answer</button>
+      <button class="btn" id="next" style="display:none;">Next question</button>
+      <span class="note" id="running"></span>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="stage" id="st-done">
+    <div class="result on" id="result">
+      <div class="score" id="score">0 / 20</div>
+      <div class="verdict" id="verdict"></div>
+      <p class="rsub" id="rsub"></p>
+      <div class="sent" id="sent">Your score has been sent to Grant.</div>
+    </div>
+    <div id="review"></div>
+    <div class="actions"><button class="btn ghost" id="retake">Take it again</button></div>
+  </div>
+</div>
+
+<!-- Shared tracker. The endpoint lives in score.js, never in here. -->
+<script src="https://grantenyeart.github.io/training-scores/score.js"></script>
+
+<script>
+
+const Q = [
+ {s:"From the video",
+  q:"Google judges three things when it decides which Search Campaign ad shows first. What are they?",
+  a:["The bid, the budget and the number of reviews","The bid, the Quality Score and the ad extras","The ad spend, the website's age and the reviews","Only the bid"],
+  c:1, e:"Your bid is only one of three. <b>Quality Score and ad extras count too</b>, which is why we build and monitor those for the client."},
+
+ {s:"From the video",
+  q:"On a Search Campaign, does the biggest bid automatically get the top spot on Google?",
+  a:["Yes, whoever pays the most shows up first","No. A strong Quality Score and ad extras can beat a bigger bid","Yes, as long as they have reviews","Only in small towns"],
+  c:1, e:"That's where most owners get it wrong. <b>Dumping in the most ad spend does not put you at number one.</b> The setup and optimization behind the ad decides it."},
+
+ {s:"From the video",
+  q:"Quality Score is Google grading what?",
+  a:["How long the business has been open","How good the ad and the landing page are, and whether people convert or leave instantly","How many reviews they have","How much they spent last month"],
+  c:1, e:"Google tracks whether the click converts or bounces, and <b>it won't place a company at the top if it isn't set up right</b>. On the slides it's three parts: click rate, ad relevance and landing page experience."},
+
+ {s:"From the video",
+  q:"Which of these is an ad extra?",
+  a:["A Call Now button, a Book Now button or a link to their reviews","A bigger daily budget","A longer website homepage","A Facebook post"],
+  c:0, e:"Ad extras make the ad more useful to the searcher, <b>and Google rewards that with a better spot</b>."},
+
+ {s:"From the video",
+  q:"Why does it usually go wrong when an owner runs their own Search Campaign?",
+  a:["Google won't let small businesses advertise","They don't set it up right and blow the budget on keywords that never convert","Their budget is too small to show up","They write too many ads"],
+  c:1, e:"They invest a ton of money into keywords that don't convert. <b>That's exactly what we specialize in fixing.</b>"},
+
+ {s:"From the video",
+  q:"On a Search Campaign, what is a negative keyword?",
+  a:["A keyword a competitor is bidding on","A search we block, like \"how to detail a car,\" so the client never pays for that click","A bad review on their profile","A keyword with a low budget"],
+  c:1, e:"Broad searches that never convert get blocked, <b>so the money goes to searches with real buying intent</b>."},
+
+ {s:"From the video",
+  q:"What does blocking negative keywords do for the client?",
+  a:["Raises their ad spend","They pay less for clicks that never book, and the budget goes to searches that do","Gets them more reviews","Nothing, it's just for reporting"],
+  c:1, e:"They pay less for wasted clicks and <b>see higher results, because every keyword they pay for actually converts</b>."},
+
+ {s:"From the video",
+  q:"In the video's case study, an owner ran his own Search Campaign, then we took it over on the same ad budget. What happened?",
+  a:["Conversions stayed the same but the cost dropped","Conversions went from 8 to 28 and the ad cost stayed the same","He doubled his budget and doubled his leads","He switched to pay-per-lead ads"],
+  c:1, e:"<b>Same budget, 8 conversions to 28</b> in the same time span. The only change was how the campaign was built and optimized."},
+
+ {s:"From the slides",
+  q:"In the video you hear \"pay-per-click.\" What do you call it with a client?",
+  a:["PPC","A Google Search Campaign","Pay-per-lead ads","Google Guaranteed"],
+  c:1, e:"\"Pay-per-click\" is fine between us. <b>With a client it is always a Google Search Campaign</b>, never PPC."},
+
+ {s:"From the slides",
+  q:"How is a Search Campaign different from the client's Google pay-per-lead ads?",
+  a:["It's the same thing with a different name","Search sits right under the pay-per-lead ads, the click lands on a page we build, and it grows with the budget","Search replaces their pay-per-lead ads","Search has the Google badge at the very top"],
+  c:1, e:"Pay-per-lead ads sit at the very top with the badge, and <b>Google caps how many leads exist in their area</b>. A Search Campaign is how they get past that cap."},
+
+ {s:"From the slides",
+  q:"Finish the talk track: \"Your pay-per-lead ads get you on the map. The Search Campaign gets you ...\"",
+  a:["to number one on Google","past the cap","more reviews","four times the return"],
+  c:1, e:"<b>They stack, they don't compete.</b> The client keeps their pay-per-lead ads running and adds Search."},
+
+ {s:"From the slides",
+  q:"On a Search Campaign, what counts as a conversion?",
+  a:["A booked, paid job","A call, a text, a quote request or a Book Now click","Any click on the ad","Anyone who sees the ad"],
+  c:1, e:"Define it out loud the first time you say the word. <b>Booked jobs are tracked separately in their CRM.</b> If you skip this, they hear a number and expect that many jobs."},
+
+ {s:"From the slides",
+  q:"What comes with every Search Campaign?",
+  a:["Just the ads","The landing page, their CRM sub-account and a business tracking number","The landing page and an AI chat widget","A new website and social media posts"],
+  c:1, e:"Every call and text is recorded. <b>No chat widgets on Search landing pages</b>: one covered the call buttons on phones."},
+
+ {s:"From the slides",
+  q:"Which Search Campaign plan do you lead with?",
+  a:["$500 a month, to get them in the door","$1,000 a month, knowing $750, $500 and the 15% revenue share are real options","The 15% revenue share","Whatever they say they can afford"],
+  c:1, e:"<b>Lead with $1,000.</b> The others are in our agreements, so know them, but don't open with them."},
+
+ {s:"From the slides",
+  q:"Our Kansas City client's first 17 days at $50 a day on Search worked out to about how many conversions a month?",
+  a:["About 180 booked jobs","About 180 conversions, at $8.36 each","About 20 conversions","About 700 conversions"],
+  c:1, e:"About 700 clicks a month at $2.18 each. <b>Conversions, not jobs.</b> Clicks cost more in other markets, so say \"in a market like Kansas City.\""},
+
+ {s:"From the slides",
+  q:"An owner asks \"How many jobs will a Search Campaign get me?\" What do you use?",
+  a:["\"If half the conversions book, that's 90 jobs a month\"","Real booked numbers, like Armenta's booking 13 jobs in 23 days at $80 a day","\"10 to 20 jobs a week from month one\"","\"One to two jobs a day, guaranteed\""],
+  c:1, e:"<b>Never do arithmetic on conversions.</b> Use the accounts where we have real booked numbers. 10 to 20 a week is where we scale to with more budget, not month one."},
+
+ {s:"From the slides",
+  q:"What's the number one way a Search Campaign fails on the client's side?",
+  a:["Too few photos on the landing page","Missed calls","Not posting on social media","A budget that's too high"],
+  c:1, e:"Set this on the call. They also have to <b>reply to quote requests within minutes, tell us which leads booked, and keep their card and Google verification current</b>."},
+
+ {s:"From the slides",
+  q:"How do you set expectations for a Search Campaign's first two weeks live?",
+  a:["Expect full results in week one","They're learning time, so we don't judge week one","Nothing happens for 90 days","The ads run free for two weeks"],
+  c:1, e:"Live 7 to 14 days after the onboarding form. <b>The first two weeks are learning.</b> Then weekly updates, a monthly report and reviews at 30, 60 and 90 days."},
+
+ {s:"From the slides",
+  q:"A prospect says \"I don't want to hand over my ad budget.\" What do you say?",
+  a:["\"We never touch it.\"","\"It's your card and your Google account. You pay Google directly and we never mark it up. We manage the campaign, you own it.\"","\"The ad spend is included in our fee.\"","\"Don't worry, we'll spend it wisely.\""],
+  c:1, e:"<b>Ownership is the point:</b> their card, their account, paid straight to Google."},
+
+ {s:"From the slides",
+  q:"A prospect asks \"What if it doesn't work?\" What do you say first?",
+  a:["\"That has literally never happened.\"","\"You're month to month. We track every call and lead, review the numbers at 30, 60 and 90 days, and if it isn't working we change the plan or tell you straight.\"","\"We guarantee 20 jobs.\"","\"You'll get your money back.\""],
+  c:1, e:"<b>Never say it has never happened.</b> It has, and a client who was told that will hold it against us."}
+];
+
+// Shuffle the answer order on every load so the right answer is never in a predictable spot.
+Q.forEach(item=>{
+  const order=[0,1,2,3];
+  for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}
+  item.a=order.map(j=>item.a[j]); item.c=order.indexOf(item.c);
+});
+
+let i=0, score=0, picked=null, log=[];
+const holder=document.getElementById('holder');
+
+function show(){
+  const item=Q[i];
+  document.getElementById('step').textContent='Question '+(i+1)+' of '+Q.length;
+  document.getElementById('barfill').style.width=(i/Q.length*100)+'%';
+  document.getElementById('running').textContent = i ? score+' right so far' : '';
+  holder.innerHTML='<div class="q" id="cur"><div class="qn">'+item.s+'</div><div class="qt">'+item.q+'</div>'+
+    item.a.map((o,j)=>'<label class="opt" id="o'+j+'"><input type="radio" name="cur" value="'+j+'"><span>'+o+'</span></label>').join('')+
+    '<div class="exp">'+item.e+'</div></div>';
+  picked=null;
+  document.getElementById('check').style.display='inline-flex';
+  document.getElementById('check').disabled=true;
+  document.getElementById('next').style.display='none';
+  holder.querySelectorAll('input').forEach(r=>r.onchange=()=>{
+    picked=parseInt(r.value,10); document.getElementById('check').disabled=false;
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('begin').onclick=function(){
+  const n=document.getElementById('name').value.trim();
+  if(!n){ alert('Put your name in first.'); document.getElementById('name').focus(); return; }
+  document.getElementById('st-start').classList.remove('on');
+  document.getElementById('st-quiz').classList.add('on');
+  show();
+};
+
+document.getElementById('check').onclick=function(){
+  if(picked===null) return;
+  const item=Q[i], box=document.getElementById('cur');
+  box.classList.add('graded');
+  document.getElementById('o'+item.c).classList.add('correct');
+  if(picked===item.c){ score++; box.classList.add('right'); }
+  else { box.classList.add('wrong'); document.getElementById('o'+picked).classList.add('picked-wrong'); }
+  log.push({n:i+1, ok:picked===item.c});
+  box.querySelectorAll('input').forEach(x=>x.disabled=true);
+  this.style.display='none';
+  const nx=document.getElementById('next');
+  nx.style.display='inline-flex';
+  nx.textContent = (i===Q.length-1) ? 'See my score' : 'Next question';
+};
+
+document.getElementById('next').onclick=function(){
+  i++;
+  if(i<Q.length){ show(); return; }
+  document.getElementById('barfill').style.width='100%';
+  document.getElementById('st-quiz').classList.remove('on');
+  document.getElementById('st-done').classList.add('on');
+  finish();
+};
+
+function finish(){
+  const name=document.getElementById('name').value.trim();
+  const missed=log.filter(x=>!x.ok).map(x=>x.n);
+  const pass=score>=16;
+  const r=document.getElementById('result');
+  r.classList.add(pass?'pass':'fail');
+  document.getElementById('score').textContent=score+' / '+Q.length;
+  document.getElementById('verdict').textContent = pass ? 'Passed' : 'Not a pass yet';
+  document.getElementById('rsub').textContent = pass
+    ? (missed.length ? 'Read the ones you missed again below: '+missed.join(', ')+'.' : 'Perfect score. Go sell some Search Campaigns.')
+    : 'You need 16 to pass. Read the missed ones below, watch the video and the slides again, then retake it.';
+
+  document.getElementById('review').innerHTML = missed.length
+    ? '<h3 style="font-size:18px;font-weight:800;margin:26px 0 12px;">What you missed</h3>' +
+      missed.map(n=>'<div class="q graded wrong"><div class="qn">Question '+n+' &middot; '+Q[n-1].s+'</div><div class="qt">'+Q[n-1].q+'</div>'+
+        '<div class="opt correct"><span>'+Q[n-1].a[Q[n-1].c]+'</span></div><div class="exp">'+Q[n-1].e+'</div></div>').join('')
+    : '';
+
+  const done=()=>document.getElementById('sent').classList.add('on');
+  RRScore.submit(
+    { quiz:'Search Campaign Quiz', track:'Setters and Closers', name:name, score:score,
+      total:Q.length, passed:pass, missed:missed.join(' ') },
+    done, done
+  );
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('retake').onclick=function(){ location.reload(); };
+</script>
+</body>
+</html>
